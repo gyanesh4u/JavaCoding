@@ -1,0 +1,535 @@
+//Java program to find second largest element in an array.
+import java.util.*;
+import java.util.stream.*;
+class HelloWorld {
+    public static void main(String[] args) {
+    int a[]={0,1,2,3,4,5,6,7,7,6,8};
+    int largest=a[0];//1
+    int sec=0;
+    
+    for(int i=1;i<a.length;i++){
+        if(largest<a[i]){
+           sec=largest;
+            largest=a[i];
+        }
+        else if(sec < a[i] && a[i] != largest){
+            sec=a[i];
+        }
+      
+    }
+      System.out.println(sec);
+    }
+}
+
+//Java program to find second largest element in an ArrayList.
+
+import java.util.*;
+import java.util.stream.*;
+class HelloWorld {
+    public static void main(String[] args) {
+   List<Integer> list=Arrays.asList(1,2,3,4,5,6,7,8,9);
+   
+   
+  int secL=list.stream().sorted(Collections.reverseOrder()).distinct().skip(1).findFirst().get();
+  System.out.println(secL);
+    }
+}
+
+//Java program reverse each word in a String
+I/p->hello world
+O/p->olleh dlrow
+
+class HelloWorld {
+    public static void main(String[] args) {
+   String s="hello world";
+   String[] word=s.split(" ");
+   String rev="";
+   for(String w:word){
+       String revWord="";
+       for(int i=w.length()-1;i>=0;i--){
+           revWord=revWord+w.charAt(i);
+       }
+       rev=rev+revWord+" ";
+   }
+   System.out.println(rev);
+    }
+}
+
+//Java program to find occurrence of each character.
+
+import java.util.*;
+class HelloWorld {
+    public static void main(String[] args) {
+          String s="gyanesh kamal";
+  char[] ch=s.toCharArray();
+  Map<Character,Integer> map=new HashMap();
+  
+  for(char c:ch){
+      if(!String.valueOf(c).isBlank())
+      if(map.containsKey(c)){
+          map.put(c,map.get(c)+1);
+      }
+      else{
+          map.put(c,1);
+      }
+  }
+  System.out.println(map);
+    }
+}
+
+
+
+//Java program to find only duplicate character
+
+import java.util.*;
+class HelloWorld {
+    public static void main(String[] args) {
+          String s="gyanesh kamal";
+  char[] ch=s.toCharArray();
+  Map<Character,Integer> map=new HashMap();
+  
+  for(char c:ch){
+      if(!String.valueOf(c).isBlank())
+      if(map.containsKey(c)){
+          map.put(c,map.get(c)+1);
+      }
+      else{
+          map.put(c,1);
+      }
+  }
+for(Map.Entry<Character,Integer> entry:map.entrySet()){
+    if(entry.getValue()>1){
+        System.out.println(entry.getKey()+":"+entry.getValue());
+    }
+}
+    }
+}
+
+//Java program to Remove duplicate character in a String
+
+public class RemoveDuplicate {
+
+	public static void main(String[] args) {
+		String string="programming";
+		StringBuilder sBuilder=new StringBuilder();
+		LinkedHashSet<Character>set=new LinkedHashSet<>();
+		for(int i=0;i<string.length();i++) {
+			set.add(string.charAt(i));
+		}
+		for(Character ch:set) {
+			sBuilder.append(ch);
+			
+		}
+		System.out.println(sBuilder);
+	}
+}
+
+//Java program to extract character and integer from a String
+
+public class Test6 {
+
+	public static void main(String[] args) {
+		String string="abcdef123456";
+		StringBuilder number=new StringBuilder();
+		StringBuilder letter=new StringBuilder();
+		char[] ch=string.toCharArray();
+		for(char c:ch) {
+		if(Character.isDigit(c)) {
+			number.append(c);
+		}
+		else if (Character.isLetter(c)) {
+			letter.append(c);
+		}
+		
+		
+	}
+		System.out.println(number);
+		System.out.println(letter);
+}
+}
+
+//Java program to find Armstrong number.
+
+public class ArmstrongNumber {
+
+	public static void isArmstrong(int num) {
+		int cube=0;
+		int r;
+		int t;
+		t=num;
+		
+		while(num>0) {
+			r=num%10;
+			num=num/10;
+			cube=cube+(r*r*r);
+		}
+		if(t==cube) {
+			System.out.println("armstrong number");
+		}
+		else {
+			System.out.println("not armstrong");
+		}
+	}
+	public static void main(String[] args) {
+		isArmstrong(153);
+	}
+}
+
+//Java program to find duplicate elements
+
+public class DuplicateElement {
+
+	public static void main(String[] args) {
+		List<Integer> list=Arrays.asList(1,2,3,3,4,4);
+		Set<Integer>set=new HashSet<Integer>();
+		
+		for(int i=0;i<list.size();i++) {
+			if(set.contains(list.get(i))) {
+				System.out.println(list.get(i));
+			}
+			else {
+				set.add(list.get(i));
+			}
+		}
+		
+		
+}
+}
+
+//Java program to find factorial of a number.
+
+public class Factorial {
+
+	public static int fact(int num) {
+		if(num==0)
+			return 1;
+		else 
+			return (num*fact(num-1));
+			
+		
+	}
+	public static void main(String[] args) {
+		System.out.println(fact(0));
+	}
+}
+
+//Java program to find Palindrome number
+
+public class PalindromeNumber {
+
+	public static void isPalindrome(int num) {
+		
+		int r=0;
+		int sum=0;
+		int t;
+		t=num;
+		while(num>0) {
+			r=num%10;
+			sum=(sum*10)+r;
+			num=num/10;
+		}
+		if(t==sum) {
+			System.out.println("palindrome");
+		}
+		else {
+			System.out.println("not palindrome");
+		}
+	}
+	public static void main(String[] args) {
+		isPalindrome(121);
+	}
+}
+
+//Java program to shift all zeros.
+
+public class ShiftZero {
+
+	public static int[] shiftZero(int a[]) {
+		if(a.length==1) {
+			return a;
+		}
+		int[] newArray=new int[a.length];
+		int count=0;
+		for(int number:a) {
+			if(number!=0) {
+				newArray[count++]=number;
+				//count++;
+			}
+		}
+		return newArray;
+	}
+	public static void main(String[] args) {
+		int [] i= {1,0,0,1,0,1,1};
+		System.out.println(Arrays.toString(shiftZero(i)));
+	}
+}
+
+//Java program to swap to String
+
+public class SwapString {
+
+	
+	public static void main(String[] args) {
+		String a="gyanesh";
+		String b="kamal";
+		
+		a=a+b;
+		
+		b=a.substring(0,(a.length()-b.length()));
+		a=a.substring(b.length());
+		
+		System.out.println(a);
+		System.out.println(b);
+	}
+}
+
+//Java program to count the uppercase in a String
+
+public class UpperCase {
+
+	
+	public static void main(String[] args) {
+		String s="I love JAva Programming";
+		int upper=0;
+		for(int i=s.length()-1;i>=0;i--) {
+			if(Character.isUpperCase(s.charAt(i))) {
+				upper++;
+				System.out.println(s.charAt(i));
+				
+			}
+		}
+		System.out.println(upper);
+	}
+
+		
+}
+//Java program to find uncommon number in an Array
+
+public class UncommonNumbers {
+	public static void main(String[] args) {
+        int[] array1 = {1, 2, 3, 4, 5};
+        int[] array2 = {4, 5, 6, 7, 8};
+        
+        Set<Integer> uniqueNumbers = new HashSet<>();
+        
+        // Add elements from array1 to the HashSet
+        for (int num : array1) {
+            uniqueNumbers.add(num);
+        }
+        
+        // Remove elements from array2 that are already in the HashSet
+        for (int num : array2) {
+            if (uniqueNumbers.contains(num)) {
+                uniqueNumbers.remove(num);
+            } else {
+                uniqueNumbers.add(num);
+            }
+        }
+        
+        // Print the uncommon numbers
+        System.out.println("Uncommon numbers in the two arrays:");
+        for (int num : uniqueNumbers) {
+            System.out.println(num);
+        }
+    }
+}
+
+//Java program to find Anagram String
+
+public class Anagram {
+
+	public static boolean isAnagram(String s1,String s2) {
+		String str1=s1.replaceAll(" ", "");
+		String str2=s2.replaceAll(" ", "");
+		if(str1.length()!=str2.length()) {
+			return false;
+		}
+		else {
+			char ch1[]=str1.toLowerCase().toCharArray();
+			char ch2[]=str2.toLowerCase().toCharArray();
+			
+			Arrays.sort(ch1);
+			Arrays.sort(ch2);
+			
+			return Arrays.equals(ch1,ch2);
+		}
+	}
+	public static void main(String[] args) {
+		System.out.println(isAnagram("silent", "listen"));
+		System.out.println(isAnagram("cat", "ACT"));
+		
+	}
+}
+
+//Java program to check vowels and consonants in a string
+
+public class CountVowelConsonant {
+
+	public static void main(String[] args) {
+		 String str = "This is a really simple sentence";    
+		 int vcount=0;
+		 int ccount=0;
+		 
+		 str = str.toLowerCase();
+		 
+		 for(int i=0;i<str.length();i++) {
+			 if(str.charAt(i)=='a'||str.charAt(i)=='e'||str.charAt(i)=='i'||str.charAt(i)=='o'||str.charAt(i)=='u') {
+				 vcount++;
+			 }
+			 else if (str.charAt(i)>='a'&&str.charAt(i)<='z') {
+				ccount++;
+			}
+		 }
+		 System.out.println("vowel "+vcount);
+		 System.out.println("consonant "+ccount);
+	}
+}
+
+//Java program to find String is pangram or not
+
+import java.util.HashSet;
+
+public class Pangram {
+	public static void main(String[] args) {
+		String string="abcdefGhijklmnopqrstuvwxyz";
+		String s="Enter the string: pack my box with five dozen liquor jugs";
+		String s1="Fix problem quickly with galvanized jets";
+		System.out.println(getPangram(string));
+		System.out.println(getPangram(s));
+		System.out.println(getPangram(s1));
+		
+	}
+	public static boolean getPangram(String s) {
+		HashSet<Character> set=new HashSet<>();
+		
+		char ch[]=s.toLowerCase().toCharArray();
+		for(char c:ch) {
+			if(Character.isLetter(c)) {
+				set.add(c);
+			}
+		}
+		return set.size()==26;
+	}
+
+}
+
+
+//Java program to find Repeated and Non-Repeated character in a String
+
+public class FindFirstRepeatedAndNonRepeatedChar {
+	  public static void firstRepeatedNonRepeatedChar(String inputString) {
+
+	        HashMap<Character, Integer> charCountMap = new HashMap<Character, Integer>();
+
+	        char[] strArray = inputString.toCharArray();
+
+	        for (char c : strArray) {
+	            if (charCountMap.containsKey(c)) {
+	                charCountMap.put(c, charCountMap.get(c) + 1);
+	            } else {
+	                charCountMap.put(c, 1);
+	            }
+	        }
+
+	        for (char c : strArray) {
+	            if (charCountMap.get(c) == 1) {
+	                System.out.println("First Non-Repeated Character In '" + inputString + "' is '" + c + "'");
+
+	                break;
+	            }
+	        }
+
+	        for (char c : strArray) {
+	            if (charCountMap.get(c) > 1) {
+	                System.out.println("First Repeated Character In '" + inputString + "' is '" + c + "'");
+
+	                break;
+	            }
+	        }
+	    }
+
+	    public static void main(String[] args) {
+	        Scanner sc = new Scanner(System.in);
+	        System.out.println("Enter the string :");
+	        String input = sc.next();
+	        firstRepeatedNonRepeatedChar(input);
+	        sc.close();
+	    }
+}
+
+//Java program to print a String in reverse order
+
+
+
+public class Test11 {
+
+	public static void main(String[] args) {
+		 String s="i love India";
+		 String[] split= s.split(" ");
+		 //approach:1->
+//		 StringBuilder sBuilder=new StringBuilder();
+//		 for(int i=split.length-1;i>=0;i--) {
+//			 sBuilder.append(split[i]).append(" ");
+//		 }
+//		 System.out.println(sBuilder);
+		 
+		// approach:-2>
+		 
+		 String str=split[2]+" "+split[1]+" "+split[0];
+		 System.out.println(str);
+	}
+	
+}
+
+
+400 Bad Request
+401 Unauthorized
+402 Payment Required
+403 Forbidden
+404 Not Found
+500 Internal Server Error
+501 Not Implemented
+502 Bad Gateway
+503 Service Unavailable
+504 Gateway Timeout
+
+
+Sr. No.
+Key
+String Buffer
+String Builder
+
+1
+Basic
+StringBuffer was introduced with the initial release of Java
+
+It was introduced in Java 5
+2
+Synchronized
+It is synchronized
+
+It is not synchronized
+3
+Performance
+It is thread-safe. So, multiple threads can’t access at the same time, therefore, it is slow.
+
+It is not thread-safe hence faster than String Buffer.
+4
+Mutable
+It is mutable. We can modify string without creating an object.
+
+It is also mutable
+5
+Storage
+Heap
+Heap
+
+
+
+
+Throw vs Throws
+	1.	Java throw keyword is used throw an exception explicitly in the code, inside the function or the block of code.
+	2.	Java throws keyword is used in the method signature to declare an exception which might be thrown by the function while the execution of the code.
+
+
+
